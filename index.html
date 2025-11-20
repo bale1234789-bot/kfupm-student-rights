@@ -1,83 +1,606 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<title>منصة حقوقي - جامعة الملك فهد للبترول والمعادن</title>
-<style>
-    body { font-family: Arial, sans-serif; background:#f7f7f7; line-height:1.8; margin:0; padding:0; }
-    .header { background:#0c3c60; color:white; padding:25px; text-align:center; font-size:28px; font-weight:bold; }
-    .section { background:white; margin:20px auto; padding:25px; width:85%; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
-    h2 { color:#0c3c60; }
-    ul { margin-top:10px; }
-    .button { display:inline-block; background:#0c3c60; color:white; padding:12px 22px; border-radius:8px; text-decoration:none; margin-top:15px; }
-</style>
+  <meta charset="UTF-8" />
+  <title>منصة حقوقي في جامعة الملك فهد للبترول والمعادن</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --kfupm-main: #0c3c60;
+      --kfupm-accent: #006f4c;
+      --bg-light: #f5f6fa;
+      --card-bg: #ffffff;
+      --text-main: #222831;
+      --muted: #6c757d;
+      --radius: 14px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Tahoma, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--kfupm-accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ====== NAVBAR ====== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--kfupm-main);
+      color: #fff;
+      padding: 10px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .navbar-logo {
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .navbar-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .navbar-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .navbar-sub {
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    .navbar-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .navbar-links a {
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .navbar-links a:hover {
+      background: rgba(255,255,255,0.12);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* ====== HEADER ====== */
+    .hero {
+      background: linear-gradient(135deg, var(--kfupm-main), #124b7a);
+      color: #fff;
+      text-align: center;
+      padding: 40px 16px 30px;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      max-width: 720px;
+      margin: 0 auto 22px;
+      opacity: 0.9;
+    }
+
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .hero-tag {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    /* ====== LAYOUT ====== */
+    .page {
+      max-width: 1050px;
+      margin: -30px auto 40px;
+      padding: 0 16px 32px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1.7fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .page {
+        margin-top: -24px;
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--kfupm-main);
+    }
+
+    .card-pill {
+      font-size: 12px;
+      color: var(--kfupm-main);
+      background: rgba(12,60,96,0.05);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .card-section-title {
+      font-weight: 600;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      color: var(--kfupm-accent);
+      font-size: 14px;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    ul {
+      margin: 6px 0 6px;
+      padding-right: 20px;
+    }
+
+    li {
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .badge {
+      background: rgba(0,111,76,0.06);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: var(--kfupm-accent);
+    }
+
+    .timeline {
+      border-right: 2px solid rgba(0,0,0,0.08);
+      margin-right: 5px;
+      padding-right: 18px;
+      margin-top: 6px;
+    }
+
+    .timeline-step {
+      position: relative;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .timeline-step::before {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--kfupm-accent);
+    }
+
+    .tag-small {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.04);
+      margin-right: 4px;
+    }
+
+    .faq-item {
+      margin-bottom: 12px;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .faq-a {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--kfupm-accent);
+      color: #fff;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+      box-shadow: 0 6px 14px rgba(0,111,76,0.25);
+    }
+
+    .button:hover {
+      text-decoration: none;
+      background: #00563a;
+      transform: translateY(-1px);
+    }
+
+    .side-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--kfupm-main);
+      margin-bottom: 4px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 10px 0 20px;
+    }
+  </style>
 </head>
 <body>
-<div class="header"><img src="/assets/kfupm_ar_logo.png" alt="KFUPM Logo" style="height:80px; margin-bottom:10px; display:block; margin-left:auto; margin-right:auto;" />منصة حقوقي في جامعة الملك فهد للبترول والمعادن</div>
 
-<div class="section">
-<h2>مرحباً بك</h2>
-<p>هذه المنصّة مبادرة طلابية تهدف إلى رفع وعي الطالب بحقوقه داخل الجامعة بطريقة واضحة، بسيطة، ومباشرة.
-نهدف إلى تمكين الطالب من معرفة ما له وما عليه وفق اللوائح والأنظمة المعتمدة في KFUPM.</p>
-</div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="navbar-logo">
+        <!-- ضع هنا رابط شعار الجامعة -->
+        <img src="LOGO_URL_HERE" alt="شعار جامعة الملك فهد للبترول والمعادن" />
+      </div>
+      <div>
+        <div class="navbar-title">منصة حقوقي</div>
+        <div class="navbar-sub">مبادرة طلابية للتعريف بحقوق الطالب في جامعة الملك فهد للبترول والمعادن</div>
+      </div>
+    </div>
+    <div class="navbar-links">
+      <a href="#intro">الرئيسية</a>
+      <a href="#rights">حقوق الطالب</a>
+      <a href="#academic">الحقوق الأكاديمية</a>
+      <a href="#privacy">الخصوصية</a>
+      <a href="#complaint">آلية التظلّم</a>
+      <a href="#faq">أسئلة شائعة</a>
+      <a href="#survey">الاستبيان</a>
+    </div>
+  </nav>
 
-<div class="section">
-<h2>ما هي حقوق الطالب في KFUPM؟</h2>
-<p>تضمن الجامعة عدداً من الحقوق الرئيسية التي تساعد الطالب على خوض تجربة أكاديمية عادلة وواضحة، من أهمها:</p>
-<ul>
-<li>المعاملة العادلة والمساواة بين الطلاب.</li>
-<li>بيئة تعليمية آمنة ومحترمة.</li>
-<li>الحصول على معلومات واضحة حول الأنظمة واللوائح.</li>
-<li>حق التظلّم ورفع الشكاوى عند الحاجة.</li>
-<li>الحق في الخصوصية وحماية البيانات الشخصية.</li>
-</ul>
-</div>
+  <!-- HERO -->
+  <header class="hero" id="intro">
+    <h1 class="hero-title">منصة حقوقي في جامعة الملك فهد للبترول والمعادن</h1>
+    <p class="hero-subtitle">
+      تهدف هذه المنصة إلى تقديم شرح مبسّط ومباشر لأهم حقوق الطالب داخل الجامعة، مع توضيح آلية التظلّم
+      ورفع الشكاوى، بما ينسجم مع لوائح وأنظمة الجامعة.
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">حقوق الإنسان في البيئة الجامعية</span>
+      <span class="hero-tag">عدالة أكاديمية</span>
+      <span class="hero-tag">خصوصية وحماية بيانات</span>
+    </div>
+  </header>
 
-<div class="section">
-<h2>أولاً: الحقوق الأكاديمية</h2>
-<ul>
-<li>معرفة وصف المقرر، ومخرجاته، وخطة التقييم منذ بداية الفصل.</li>
-<li>التسجيل والتعديل على الجدول وفق الفترات المعلنة.</li>
-<li>تقييم عادل وموحد لجميع الطلاب.</li>
-<li>حق مراجعة الدرجات والتظلّم الأكاديمي.</li>
-<li>الحصول على إرشاد أكاديمي يساعدك في مسارك الدراسي.</li>
-</ul>
-</div>
+  <main class="page">
+    <div class="grid">
+      <!-- العمود الرئيسي -->
+      <section>
+        <!-- بطاقة: مقدمة -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">لماذا أُنشئت هذه المنصة؟</div>
+            <span class="card-pill">عن المنصة</span>
+          </div>
+          <p style="font-size:14px;">
+            يواجه كثير من الطلاب صعوبة في الوصول إلى معلومات واضحة حول حقوقهم وواجباتهم داخل الجامعة، سواء
+            في الجوانب الأكاديمية أو السلوكية أو الإدارية. ولهذا أُطلقت منصة <b>حقوقي</b> كعمل طلابي
+            يهدف إلى:
+          </p>
+          <ul>
+            <li>تلخيص أهم حقوق الطالب بلغة بسيطة بعيدة عن التعقيد القانوني.</li>
+            <li>تجميع الحقوق المتفرقة في اللوائح المختلفة في مكان واحد يسهل الرجوع إليه.</li>
+            <li>توضيح ما يمكن للطالب فعله إذا رأى أن أحد حقوقه لم يُحترم.</li>
+          </ul>
+          <p class="muted">
+            هذه المنصة ليست بديلاً عن الأنظمة الرسمية للجامعة، بل تساعد الطالب على فهمها وتشجّعه على الرجوع إليها عند الحاجة.
+          </p>
+        </article>
 
-<div class="section">
-<h2>ثانياً: حقوق الخصوصية وحماية البيانات</h2>
-<ul>
-<li>سرية السجل الأكاديمي وعدم مشاركته إلا مع جهات مختصة.</li>
-<li>حماية المعلومات الشخصية داخل الأنظمة الجامعية.</li>
-<li>عدم استخدام بيانات الطالب في غير الأغراض الرسمية.</li>
-<li>احترام خصوصية الطالب داخل القاعات والمنصات التعليمية.</li>
-</ul>
-</div>
+        <!-- بطاقة: ما هي حقوق الطالب -->
+        <article class="card" id="rights">
+          <div class="card-header">
+            <div class="card-title">ما هي حقوق الطالب في KFUPM؟</div>
+            <span class="card-pill">نظرة عامة</span>
+          </div>
+          <p style="font-size:14px;">
+            تلتزم الجامعة بتوفير بيئة تعليمية عادلة ومحفّزة لجميع الطلاب، ومن أهم الحقوق العامة للطالب:
+          </p>
+          <ul>
+            <li>المعاملة العادلة والمساواة بين الطلاب دون تمييز.</li>
+            <li>الحق في التعلم ضمن بيئة آمنة ومحترمة.</li>
+            <li>الحق في الحصول على معلومات واضحة عن اللوائح والأنظمة.</li>
+            <li>الحق في تقديم شكوى أو تظلّم وفق إجراءات محددة.</li>
+            <li>الحق في الحفاظ على خصوصية بياناته وسجله الأكاديمي.</li>
+          </ul>
+          <div class="badge-list">
+            <span class="badge">عدالة</span>
+            <span class="badge">شفافية</span>
+            <span class="badge">كرامة الطالب</span>
+            <span class="badge">بيئة آمنة</span>
+          </div>
+        </article>
 
-<div class="section">
-<h2>ثالثاً: آلية التظلّم (كيف تقدم شكوى؟)</h2>
-<ul>
-<li>التواصل أولاً مع الجهة المباشرة مثل أستاذ المادة أو المرشد.</li>
-<li>رفع الموضوع لرئيس القسم في حال عدم حل المشكلة.</li>
-<li>تقديم تظلّم رسمي عبر البوابة الإلكترونية.</li>
-<li>متابعة الطلب والاحتفاظ برقم المعاملة.</li>
-</ul>
-</div>
+        <!-- بطاقة: الحقوق الأكاديمية -->
+        <article class="card" id="academic">
+          <div class="card-header">
+            <div class="card-title">أولاً: الحقوق الأكاديمية</div>
+            <span class="card-pill">الدراسة والتقييم</span>
+          </div>
 
-<div class="section">
-<h2>أسئلة شائعة</h2>
-<ul>
-<li><b>هل يمكنني الاعتراض على درجتي؟</b> نعم، يمكنك طلب مراجعة ورقة الاختبار أو تقديم تظلّم رسمي.</li>
-<li><b>هل الجامعة تشارك بياناتي؟</b> يتم ذلك فقط مع جهات مختصة وبشكل رسمي.</li>
-<li><b>ماذا أفعل إذا تعرضت لسلوك غير لائق؟</b> يمكنك التواصل مع المرشد الأكاديمي أو عمادة شؤون الطلاب.</li>
-</ul>
-</div>
+          <div class="card-section-title">1. حق المعرفة الأكاديمية</div>
+          <ul>
+            <li>معرفة وصف المقرر ومخرجات التعلم والأهداف من بداية الفصل.</li>
+            <li>الحصول على خطة تقييم واضحة (اختبارات، واجبات، مشاريع… إلخ).</li>
+            <li>إعلام الطالب بأي تغييرات جوهرية في طريقة التقييم خلال الفصل.</li>
+          </ul>
 
-<div class="section">
-<h2>شارك برأيك</h2>
-<p>يساعدنا هذا الاستبيان في معرفة مستوى وعي الطلاب بحقوقهم وتحديد النقاط التي تحتاج تحسين.</p>
-<a class="button" href="#">رابط الاستبيان (ضع الرابط هنا)</a>
-</div>
+          <div class="card-section-title">2. حق التسجيل والتعديل</div>
+          <ul>
+            <li>التسجيل في المقررات وفق الشروط والضوابط المعلنة.</li>
+            <li>إتاحة فترات محددة للإضافة والحذف وتعديل الجدول الدراسي.</li>
+            <li>معرفة الضوابط المتعلقة بالتأجيل، الانسحاب من المقرر أو من الفصل.</li>
+          </ul>
 
+          <div class="card-section-title">3. حق التقييم العادل</div>
+          <ul>
+            <li>تطبيق معايير موحّدة للتصحيح على جميع الطلاب في نفس المقرر.</li>
+            <li>إجراء الاختبارات وفق الأنظمة (مدة الاختبار، موعده، طريقة الإعلان عنه).</li>
+            <li>إعلان الدرجات في وقت مناسب وبطريقة واضحة.</li>
+          </ul>
+
+          <div class="card-section-title">4. حق مراجعة الدرجات والتظلّم</div>
+          <ul>
+            <li>طلب مراجعة ورقة الاختبار إذا شك الطالب في وجود خطأ في التصحيح أو الرصد.</li>
+            <li>تقديم طلب تظلّم رسمي خلال المدة الزمنية المحددة في اللوائح.</li>
+            <li>الحصول على رد رسمي على التظلّم خلال فترة معقولة.</li>
+          </ul>
+
+          <div class="card-section-title">5. حق الإرشاد الأكاديمي</div>
+          <ul>
+            <li>الحصول على مرشد أكاديمي يساند الطالب في اختيار المقررات ومساره الدراسي.</li>
+            <li>طرح الاستفسارات الأكاديمية ومناقشة وضعه الدراسي مع المرشد.</li>
+          </ul>
+        </article>
+
+        <!-- بطاقة: الخصوصية -->
+        <article class="card" id="privacy">
+          <div class="card-header">
+            <div class="card-title">ثانياً: حقوق الخصوصية وحماية البيانات</div>
+            <span class="card-pill">البيانات الشخصية والأكاديمية</span>
+          </div>
+          <p style="font-size:14px;">
+            تحترم الجامعة خصوصية بيانات الطالب، ومن حقه أن تُعامل معلوماته بحساسية ومسؤولية، ومن ذلك:
+          </p>
+
+          <div class="card-section-title">1. سرية السجل الأكاديمي</div>
+          <ul>
+            <li>عدم مشاركة المعدل والدرجات والوضع الأكاديمي إلا مع جهات مخوّلة.</li>
+            <li>استخدام السجل الأكاديمي لأغراض رسمية (مثل التخرّج، التدريب، المنح).</li>
+          </ul>
+
+          <div class="card-section-title">2. حماية المعلومات الشخصية</div>
+          <ul>
+            <li>حفظ بيانات الهوية ووسائل التواصل والعنوان في أنظمة آمنة.</li>
+            <li>عدم استخدامها لأغراض تجارية أو غير رسمية دون موافقة الطالب.</li>
+          </ul>
+
+          <div class="card-section-title">3. استخدام الأنظمة والمنصات التعليمية</div>
+          <ul>
+            <li>تقديم حساب جامعي للطالب للوصول للخدمات الإلكترونية.</li>
+            <li>التزام الطالب بعدم إساءة استخدام المنصات أو مشاركة محتوى يسيء للآخرين.</li>
+            <li>عدم تسجيل أو نشر محتوى المحاضرات أو الزملاء دون إذن.</li>
+          </ul>
+
+          <p class="muted">
+            أي انتهاك لخصوصية الطالب أو بياناته يمكن اعتباره مخالفة لأنظمة الجامعة، ويحق للطالب التظلّم عبر القنوات الرسمية.
+          </p>
+        </article>
+
+        <!-- بطاقة: آلية التظلم -->
+        <article class="card" id="complaint">
+          <div class="card-header">
+            <div class="card-title">ثالثاً: آلية التظلّم ورفع الشكاوى</div>
+            <span class="card-pill">ماذا أفعل إذا شعرت أن حقي لم يُحترم؟</span>
+          </div>
+          <p style="font-size:14px;">
+            توفّر الجامعة قنوات رسمية للتظلّم الأكاديمي أو الإداري. هذه خطوات عامة يمكن للطالب الاسترشاد بها
+            (مع مراعاة اللوائح الفعلية في الجامعة):
+          </p>
+
+          <div class="timeline">
+            <div class="timeline-step">
+              <span class="tag-small">الخطوة 1</span>
+              <b>التواصل المباشر مع الجهة المعنية</b><br />
+              مثل أستاذ المقرر، منسق المادة، أو المرشد الأكاديمي. كثير من الإشكالات تُحل بالحوار المباشر.
+            </div>
+            <div class="timeline-step">
+              <span class="tag-small">الخطوة 2</span>
+              <b>رفع الموضوع لرئيس القسم أو الجهة الأعلى</b><br />
+              في حال عدم حل المشكلة، يرفع الطالب الموضوع بشكل مكتوب لرئيس القسم أو الجهة المختصة.
+            </div>
+            <div class="timeline-step">
+              <span class="tag-small">الخطوة 3</span>
+              <b>تقديم تظلّم رسمي عبر القنوات المعتمدة</b><br />
+              تعبئة نموذج التظلّم الإلكتروني أو الورقي متضمناً وصفاً واضحاً للحالة والتواريخ والأدلة المتاحة.
+            </div>
+            <div class="timeline-step">
+              <span class="tag-small">الخطوة 4</span>
+              <b>متابعة الطلب</b><br />
+              الاحتفاظ برقم المعاملة، ومتابعة الرد خلال المدة المحددة في الأنظمة، ورفع الموضوع للجهات الأعلى
+              عند الحاجة وفق التسلسل.
+            </div>
+          </div>
+
+          <p class="muted">
+            الهدف من آلية التظلّم هو تحقيق العدالة لجميع الأطراف، وليس التصعيد غير البنّاء. كلما كان الطلب
+            مكتوباً بلغة محترمة وموثّقاً بالتواريخ، زادت فرص سرعة معالجته.
+          </p>
+        </article>
+
+        <!-- بطاقة: FAQ -->
+        <article class="card" id="faq">
+          <div class="card-header">
+            <div class="card-title">أسئلة شائعة حول حقوق الطالب</div>
+            <span class="card-pill">FAQ</span>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">هل يمكنني الاعتراض على درجتي في اختبار معيّن؟</div>
+            <div class="faq-a">
+              نعم، يمكنك طلب مراجعة ورقة الاختبار أو التظلّم وفق الآلية المعتمدة في القسم، وخلال الفترة الزمنية المحددة بعد إعلان النتيجة.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">هل يحق للجامعة مشاركة درجاتي مع جهات خارجية؟</div>
+            <div class="faq-a">
+              تتم مشاركة البيانات الأكاديمية فقط مع جهات رسمية أو بموافقة الطالب، وفق السياسات المعمول بها.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">ماذا أفعل إذا تعرضت لسلوك غير مناسب من أحد منسوبي الجامعة؟</div>
+            <div class="faq-a">
+              يمكن التواصل مع المرشد الأكاديمي أو عمادة شؤون الطلاب أو الجهة المختصة، ورفع شكوى رسمية موثقة بما حدث.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">هل هذه المنصة جهة رسمية تمثّل الجامعة؟</div>
+            <div class="faq-a">
+              المنصة مبادرة طلابية تهدف لتبسيط المعلومات، ولا تغني عن الرجوع للأنظمة واللوائح الرسمية المعتمدة من الجامعة.
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- العمود الجانبي -->
+      <aside>
+        <div class="card" id="survey">
+          <div class="side-card-title">استبيان وعي الطالب بحقوقه</div>
+          <p class="muted">
+            يساعدنا هذا الاستبيان على قياس مدى وعي طلاب الجامعة بحقوقهم، وتحديد الجوانب التي تحتاج
+            إلى مزيد من التوضيح أو الجهود التوعوية.
+          </p>
+          <ul>
+            <li>مدة تعبئة الاستبيان أقل من دقيقتين.</li>
+            <li>البيانات تُستخدم لأغراض دراسية وتطويرية فقط.</li>
+          </ul>
+          <!-- ضع رابط Google Forms هنا -->
+          <a class="button" href="FORM_URL_HERE" target="_blank" rel="noopener">
+            المشاركة في الاستبيان
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="side-card-title">كيف أستفيد من هذه المنصة؟</div>
+          <ul>
+            <li>استخدمها كمرجع سريع عند مواجهة موقف غير واضح.</li>
+            <li>اطّلع على الحقوق قبل بداية كل فصل دراسي.</li>
+            <li>شارك الرابط مع زملائك في الشُعب والأنشطة الطلابية.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="side-card-title">تنبيه مهم</div>
+          <p class="muted">
+            هذه المنصة لا تمثّل موقفاً رسمياً للجامعة، وإنما تعكس محاولة طلابية لنشر الوعي بحقوق الطالب
+            بأسلوب مبسّط. المرجع النهائي هو اللوائح والأنظمة المعتمدة من الجامعة.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    منصة حقوقي – عمل طلابي في جامعة الملك فهد للبترول والمعادن ©
+  </footer>
 </body>
 </html>
