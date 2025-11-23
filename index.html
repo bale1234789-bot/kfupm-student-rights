@@ -297,6 +297,40 @@
     .anchor {
       scroll-margin-top: 80px;
     }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-block h3 {
+      margin: 6px 0 4px;
+      font-size: 0.95rem;
+      color: #f9fafb;
+    }
+
+    .contact-block p, .contact-block li {
+      font-size: 0.86rem;
+    }
+
+    .contact-label {
+      font-weight: 600;
+      color: #cbd5f5;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      direction: ltr;
+      unicode-bidi: bidi-override;
+      font-size: 0.82rem;
+    }
   </style>
 </head>
 <body>
@@ -315,7 +349,8 @@
         <a href="#dress">اللباس والذوق العام</a>
         <a href="#housing">سكن الطلاب</a>
         <a href="#activity">النشاط الطلابي</a>
-        <a href="#traffic">المرور داخل الجامعة</a>
+        <a href="#traffic">المرور</a>
+        <a href="#contact">التواصل والدعم</a>
       </nav>
     </div>
   </header>
@@ -331,7 +366,7 @@
       </p>
       <div class="hero-meta">
         <span class="chip">مستند معتمد – دليل الحقوق والواجبات الطلابية</span>
-        <span class="chip">يشمل: حقوق، واجبات، لوائح تأديبية، لبس، سكن، نشاط، مرور</span>
+        <span class="chip">يشمل: حقوق، واجبات، لوائح تأديبية، لبس، سكن، نشاط، مرور، تواصل</span>
       </div>
     </section>
 
@@ -342,9 +377,9 @@
         <article id="rights" class="card anchor">
           <div class="pill-title"><span class="pill-dot"></span>حقوق الطالب الجامعي</div>
           <div class="section-id">من دليل الحقوق والواجبات – المواد الخاصة بحقوق الطالب</div>
-          <h2>أولاً: الحقوق الأكديمية</h2>
+          <h2>أولاً: الحقوق الأكاديمية</h2>
           <ul>
-            <li>المعاملة بالعدالة والمساواة دون أي تمييز في الحقوق والواجبات الأكديمية.</li>
+            <li>المعاملة بالعدالة والمساواة دون أي تمييز في الحقوق والواجبات الأكاديمية.</li>
             <li>توفير بيئة دراسية ومناخ علمي مناسب للتحصيل والبحث.</li>
             <li>الوصول لجميع المعلومات المتعلقة بأنظمة الدراسة والاختبارات واللوائح بسهولة.</li>
             <li>الحصول على المادة العلمية والتجهيزات اللازمة لإكمال المقررات والأبحاث.</li>
@@ -356,7 +391,7 @@
             <li>التظلم من أي قرار أکاديمي (درجة، حرمان، إجراءات اختبار...) عبر القنوات الرسمية.</li>
           </ul>
 
-          <h3>ثانياً: الحقوق غير الأكديمية</h3>
+          <h3>ثانياً: الحقوق غير الأكاديمية</h3>
           <ul>
             <li>معاملة كريمة تحفظ إنسانيتك وكرامتك من جميع منسوبي الجامعة.</li>
             <li>الحفاظ على سرية ملفك الطالبـي وبياناتك.</li>
@@ -379,7 +414,7 @@
         <article id="duties" class="card anchor">
           <div class="pill-title"><span class="pill-dot"></span>واجبات والتزامات الطالب</div>
           <div class="section-id">من باب «ثانياً – التزامات الطالب الجامعي»</div>
-          <h2>أولاً: الالتزامات الأكديمية</h2>
+          <h2>أولاً: الالتزامات الأكاديمية</h2>
           <ul>
             <li>الاطلاع على الأنظمة واللوائح الجامعية (الدراسة والاختبارات، اللائحة التأديبية، دليل اللباس...)؛
               الجهل بالنظام لا يُعد عذراً.</li>
@@ -389,7 +424,7 @@
             <li>الالتزام بحقوق الملكية الفكرية وعدم نسخ أو سرقة أعمال الآخرين.</li>
           </ul>
 
-          <h3>ثانياً: الالتزامات غير الأكديمية</h3>
+          <h3>ثانياً: الالتزامات غير الأكاديمية</h3>
           <ul>
             <li>الالتزام بالقيم والآداب الإسلامية وأنظمة المملكة.</li>
             <li>احترام جميع منسوبي الجامعة وضيوفها والعاملين فيها، وعدم الإساءة لهم قولاً أو فعلاً أو عبر وسائل التواصل.</li>
@@ -423,7 +458,7 @@
           <ul>
             <li>عدم إيذاء الزملاء بالقول أو الفعل أو السخرية أو التنمر.</li>
             <li>المشاركة الإيجابية في الأنشطة والأندية وتوثيق الروابط الاجتماعية القائمة على الاحترام والتعاون.</li>
-            <li>مساعدة زملاءك من ذوي الإعاقة وذوي الاحتياجات الخاصة واحترام حقوقهم (مثل المواقف المخصصة).</li>
+            <li>مساعدة زملائك من ذوي الإعاقة وذوي الاحتياجات الخاصة واحترام حقوقهم (مثل المواقف المخصصة).</li>
           </ul>
 
           <h3>العلاقة مع المجتمع</h3>
@@ -441,7 +476,7 @@
           <ul>
             <li>أي فعل أو قول يمسّ الدين أو أنظمة الدولة أو يخلّ بحسن السيرة والسلوك.</li>
             <li>الاعتداء على أي شخص أو ممتلكاته أو ممتلكات الجامعة.</li>
-            <li>الغش أو الشروع في الغش في الاختبارات أو المتطلبات الأكديمية.</li>
+            <li>الغش أو الشروع في الغش في الاختبارات أو المتطلبات الأكاديمية.</li>
             <li>التدخين في الأماكن الممنوع فيها، أو مخالفة تعليمات اللباس والمظهر.</li>
             <li>تنظيم أنشطة أو إصدار مطبوعات أو جمع تبرعات دون موافقة الجامعة.</li>
             <li>انتحال الشخصية أو الواسطة أو التزوير في المعاملات الجامعية.</li>
@@ -475,7 +510,7 @@
             <li>الحفاظ على المظهر اللائق داخل المدينة الجامعية.</li>
             <li>يُمنع لبس ما يخل بالذوق العام مثل: ثياب النوم، الشورت القصير جداً، الملابس الشفافة أو التي تحمل عبارات أو صوراً غير لائقة.</li>
             <li>تجنّب القصات الغريبة أو الإكسسوارات اللافتة والمبالغ فيها.</li>
-            <li>ارتداء حذاء مناسب بالمظهر واللون للبيئة الأكديمية.</li>
+            <li>ارتداء حذاء مناسب بالمظهر واللون للبيئة الأكاديمية.</li>
           </ul>
 
           <h3>أمثلة على مخالفات الذوق العام داخل الجامعة</h3>
@@ -541,7 +576,7 @@
           <div class="pill-title"><span class="pill-dot"></span>المرور والمخالفات داخل الحرم الجامعي</div>
           <h2>ملخص مهم لقيادة المركبات</h2>
           <ul>
-            <li>التقيد بالسرعات المحددة داخل الجامعة (تختلف للسيارات الصغيرة والحافلات حسب الجداول الرسمية).</li>
+            <li>التقيد بالسرعات المحددة داخل الجامعة.</li>
             <li>الوقوف للمشاة، والالتزام بإشارات المرور وعلامة (قف) ونقاط التفتيش.</li>
             <li>عدم القيادة دون رخصة، أو عكس السير، أو استخدام الجوال أثناء القيادة.</li>
             <li>استخدام حزام الأمان، وتثبيت الأطفال في المقاعد المخصصة لهم.</li>
@@ -553,6 +588,123 @@
             المخالفات المرورية تُسجَّل عليك بغرامات مالية، وقد تصل في الحالات الشديدة إلى حجز المركبة أو الفصل من
             الجامعة عند تكرار المخالفة أو تعريض الآخرين للخطر.
           </p>
+        </article>
+
+        <!-- CONTACT (FULL WIDTH CARD) -->
+        <article id="contact" class="card anchor">
+          <div class="pill-title"><span class="pill-dot"></span>التواصل والدعم – أرقام وإيميلات مهمة</div>
+          <h2>#تواصل – كيف تتواصل مع الجهات المختلفة في KFUPM؟</h2>
+          <p style="font-size:0.9rem;">
+            إذا واجهت مشكلة في <strong>القبول، التسجيل، الغياب، السكن، المكافآت، السنة التحضيرية أو غيرها</strong> فهذه
+            أهم قنوات التواصل الرسمية في الجامعة. استخدم القناة الأقرب لمشكلتك، وحاول أن تكتب بريد واضح فيه الرقم
+            الجامعي، اسمك، والتفاصيل باختصار.
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-block">
+              <h3>أولاً: حسابات وتواصل إلكتروني</h3>
+              <p>
+                <span class="contact-label">تويتر – إدارة القبول:</span><br />
+                <a href="https://twitter.com/KFUPM_Admission?s=20" target="_blank" rel="noopener">
+                  twitter.com/KFUPM_Admission
+                </a>
+              </p>
+
+              <h3>ثانياً: إيميلات رسمية</h3>
+              <ul>
+                <li><span class="contact-label">مسجّل الجامعة (الريجستر):</span><br />
+                  <span class="mono">registrar@kfupm.edu.sa</span><br />
+                  <span class="mono">registr@kfupm.edu.sa</span>
+                </li>
+                <li><span class="contact-label">عمادة القبول والتسجيل:</span><br />
+                  <span class="mono">admissions@kfupm.edu.sa</span>
+                </li>
+                <li><span class="contact-label">شؤون الطالب الأكاديمية:</span><br />
+                  <span class="mono">aaffairs@kfupm.edu.sa</span>
+                </li>
+                <li><span class="contact-label">شؤون الطالب غير الأكاديمية:</span><br />
+                  <span class="mono">saffairs@kfupm.edu.sa</span>
+                </li>
+                <li><span class="contact-label">مسؤول الغياب (الطلاب):</span><br />
+                  <span class="mono">hmutairi@kfupm.edu.sa</span>
+                </li>
+                <li><span class="contact-label">مسؤولة الغياب (الطالبات):</span><br />
+                  <span class="mono">norah.yami@kfupm.edu.sa</span>
+                </li>
+                <li><span class="contact-label">إدارة السكن:</span><br />
+                  <span class="mono">stuhouse@kfupm.edu.sa</span><br />
+                  <span style="font-size:0.8rem;color:#cbd5f5;">
+                    يمكنك من خلاله طلب صيانة، بلاغات، أو تكليفهم بنقل الأغراض الشخصية.
+                  </span>
+                </li>
+                <li><span class="contact-label">تخطي السنة التحضيرية (Skip Prep):</span><br />
+                  <span class="mono">SkipPrep@kfupm.edu.sa</span>
+                </li>
+                <li><span class="contact-label">المكافآت:</span><br />
+                  <span class="mono">student-allowance@kfupm.edu.sa</span>
+                </li>
+                <li><span class="contact-label">عمادة السنة التحضيرية:</span><br />
+                  <span class="mono">prepyear@kfupm.edu.sa</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="contact-block">
+              <h3>ثالثاً: أرقام مهمة داخل الجامعة</h3>
+              <ul>
+                <li><span class="contact-label">عمادة القبول:</span><br />
+                  <span class="mono">+966138602901</span><br />
+                  <span class="mono">+966138602722 (فاكس)</span>
+                </li>
+                <li><span class="contact-label">مسجّل الجامعة:</span><br />
+                  <span class="mono">+966138602023</span>
+                </li>
+                <li><span class="contact-label">مستودع الكتب (واتساب):</span><br />
+                  <span class="mono">+966138603409</span>
+                </li>
+                <li><span class="contact-label">السنة التحضيرية:</span><br />
+                  <span class="mono">+966138601700</span>
+                </li>
+                <li><span class="contact-label">شؤون الطلاب:</span><br />
+                  <span class="mono">+966138602900</span>
+                </li>
+                <li><span class="contact-label">خدمات الطلاب:</span><br />
+                  <span class="mono">+966138602903</span>
+                </li>
+                <li><span class="contact-label">صندوق الطلاب:</span><br />
+                  <span class="mono">+966138602923</span>
+                </li>
+                <li><span class="contact-label">المركز الطبي:</span><br />
+                  <span class="mono">+966138603354</span>
+                </li>
+                <li><span class="contact-label">ليموزين الجامعة:</span><br />
+                  <span class="mono">+966138602799</span>
+                </li>
+                <li><span class="contact-label">قسم تقنية المعلومات (ITC):</span><br />
+                  <span class="mono">+966138603111</span>
+                </li>
+                <li><span class="contact-label">إسكان الطلاب:</span><br />
+                  <span class="mono">+966138607766</span><br />
+                  <span class="mono">+966138603609</span>
+                </li>
+                <li><span class="contact-label">إدارة الأمن:</span><br />
+                  <span class="mono">+966138603131</span><br />
+                  <span class="mono">+966138603115</span>
+                </li>
+              </ul>
+
+              <h3>رابعاً: السنترال – لو ما تعرف التحويلة</h3>
+              <p>
+                إذا ما تعرف تحويلة موظف أو قسم معيّن:
+              </p>
+              <ul>
+                <li>اتصل على السنترال: <span class="mono">+966138600000</span></li>
+                <li>اشرح له مشكلتك أو اطلب القسم أو اسم الموظف.</li>
+                <li>بيعطيك رقم تحويلة مكوّن من أربع أرقام.</li>
+                <li>إذا كنت تتصل من داخل الجامعة: اتصل على البدالة الداخلية ثم أدخل رقم التحويلة مباشرة.</li>
+              </ul>
+            </div>
+          </div>
         </article>
       </div>
 
@@ -573,6 +725,7 @@
             <span class="tag">سكن الطلاب</span>
             <span class="tag">النشاط الطلابي</span>
             <span class="tag">المخالفات المرورية</span>
+            <span class="tag">التواصل والدعم</span>
           </div>
         </div>
 
@@ -583,6 +736,7 @@
             <li><strong>قبل ما تسوي تصرف رمادي:</strong> افتح قسم الواجبات واللباس والذوق العام.</li>
             <li><strong>ساكن في السكن؟</strong> ادخل قسم السكن واعرف الأشياء الممنوعة والعقوبات.</li>
             <li><strong>معك سيارة داخل الجامعة؟</strong> اقرأ أهم المخالفات المرورية والغرامات.</li>
+            <li><strong>تبي تتواصل مع جهة معينة؟</strong> استخدم قسم «التواصل والدعم» وابدأ من القناة الأقرب لمشكلتك.</li>
           </ul>
         </div>
 
@@ -601,7 +755,9 @@
     <footer class="footer">
       هذه الصفحة مجرد <strong>ملخّص توعوي</strong> لمحتوى دليل الحقوق والواجبات واللوائح الطلابية في
       الجامعة. في حال التعارض أو الحاجة لتفاصيل إضافية، يُرجع دائماً إلى الدليل الرسمي واللوائح المنشورة من
-      الجامعة.
+      الجامعة.  
+      <br />
+      تم إعداد المنصة بواسطة طلاب KFUPM لدعم زملائهم في معرفة حقوقهم وطرق التواصل مع الجهات المختصة.
     </footer>
   </main>
 
