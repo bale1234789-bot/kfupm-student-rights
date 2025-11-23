@@ -2,18 +2,16 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>منصة حقوقي في جامعة الملك فهد للبترول والمعادن</title>
+  <title>منصة حقوق وواجبات طالب جامعة الملك فهد للبترول والمعادن</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --kfupm-main: #0c3c60;
-      --kfupm-accent: #006f4c;
-      --bg-light: #f5f6fa;
-      --card-bg: #ffffff;
-      --text-main: #222831;
-      --muted: #6c757d;
-      --radius: 14px;
-      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+      --kfupm-green: #1b6b3a;
+      --kfupm-dark: #0f172a;
+      --kfupm-light: #f9fafb;
+      --kfupm-muted: #6b7280;
+      --radius-lg: 18px;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.12);
     }
 
     * {
@@ -22,586 +20,603 @@
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Tahoma, sans-serif;
-      background: var(--bg-light);
-      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
       line-height: 1.8;
     }
 
     a {
-      color: var(--kfupm-accent);
+      color: inherit;
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 16px 64px;
     }
 
-    /* ====== NAVBAR ====== */
+    /* ========== NAVBAR ========== */
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: var(--kfupm-main);
-      color: #fff;
-      padding: 10px 32px;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), rgba(2, 6, 23, 0.7));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .navbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-    }
-
-    .navbar-left {
-      display: flex;
-      align-items: center;
       gap: 12px;
     }
 
-    .navbar-logo {
-      height: 44px;
-      width: 44px;
-      border-radius: 50%;
-      overflow: hidden;
-      background: rgba(255,255,255,0.12);
+    .brand {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 10px;
+      font-weight: 700;
+      color: #f9fafb;
+      font-size: 0.95rem;
     }
 
-    .navbar-logo img {
-      max-width: 100%;
-      max-height: 100%;
+    .brand img {
+      width: 40px;
+      height: 40px;
       object-fit: contain;
     }
 
-    .navbar-title {
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .navbar-sub {
-      font-size: 13px;
-      opacity: 0.85;
-    }
-
-    .navbar-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 14px;
-    }
-
-    .navbar-links a {
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      transition: background 0.2s, transform 0.1s;
-    }
-
-    .navbar-links a:hover {
-      background: rgba(255,255,255,0.12);
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-
-    /* ====== HEADER ====== */
-    .hero {
-      background: linear-gradient(135deg, var(--kfupm-main), #124b7a);
-      color: #fff;
-      text-align: center;
-      padding: 40px 16px 30px;
-    }
-
-    .hero-title {
-      font-size: 28px;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-
-    .hero-subtitle {
-      font-size: 15px;
-      max-width: 720px;
-      margin: 0 auto 22px;
-      opacity: 0.9;
-    }
-
-    .hero-tags {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 13px;
-    }
-
-    .hero-tag {
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-    }
-
-    /* ====== LAYOUT ====== */
-    .page {
-      max-width: 1050px;
-      margin: -30px auto 40px;
-      padding: 0 16px 32px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 1.7fr);
-      gap: 20px;
-    }
-
-    @media (max-width: 900px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-      .grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .page {
-        margin-top: -24px;
-      }
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 20px 22px;
-      margin-bottom: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      gap: 12px;
-    }
-
-    .card-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--kfupm-main);
-    }
-
-    .card-pill {
-      font-size: 12px;
-      color: var(--kfupm-main);
-      background: rgba(12,60,96,0.05);
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-
-    .card-section-title {
-      font-weight: 600;
-      margin-top: 12px;
-      margin-bottom: 4px;
-      color: var(--kfupm-accent);
-      font-size: 14px;
-    }
-
-    .muted {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    ul {
-      margin: 6px 0 6px;
-      padding-right: 20px;
-    }
-
-    li {
-      margin-bottom: 4px;
-      font-size: 14px;
-    }
-
-    .badge-list {
+    .nav-links {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 6px;
+      justify-content: flex-end;
     }
 
-    .badge {
-      background: rgba(0,111,76,0.06);
+    .nav-links a {
+      font-size: 0.8rem;
+      padding: 6px 10px;
       border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 12px;
-      color: var(--kfupm-accent);
+      border: 1px solid transparent;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.7);
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+      white-space: nowrap;
     }
 
-    .timeline {
-      border-right: 2px solid rgba(0,0,0,0.08);
-      margin-right: 5px;
-      padding-right: 18px;
-      margin-top: 6px;
-    }
-
-    .timeline-step {
-      position: relative;
-      margin-bottom: 10px;
-      font-size: 14px;
-    }
-
-    .timeline-step::before {
-      content: "";
-      position: absolute;
-      right: -20px;
-      top: 4px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--kfupm-accent);
-    }
-
-    .tag-small {
-      display: inline-block;
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.04);
-      margin-right: 4px;
-    }
-
-    .faq-item {
-      margin-bottom: 12px;
-    }
-
-    .faq-q {
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    .faq-a {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .button {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: var(--kfupm-accent);
-      color: #fff;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      margin-top: 8px;
-      transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
-      box-shadow: 0 6px 14px rgba(0,111,76,0.25);
-    }
-
-    .button:hover {
-      text-decoration: none;
-      background: #00563a;
+    .nav-links a:hover {
+      background: rgba(34, 197, 94, 0.1);
+      border-color: rgba(34, 197, 94, 0.6);
       transform: translateY(-1px);
     }
 
-    .side-card-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--kfupm-main);
+    /* ========== HERO ========== */
+    .hero {
+      margin-top: 20px;
+      padding: 22px 18px;
+      border-radius: 22px;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.13), transparent 55%),
+                  radial-gradient(circle at top right, rgba(59, 130, 246, 0.10), transparent 55%),
+                  #020617;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-title {
+      font-size: 1.7rem;
+      margin: 0 0 6px;
+      color: #f9fafb;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 14px;
+      font-size: 0.95rem;
+      color: #cbd5f5;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--kfupm-muted);
+    }
+
+    .chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    /* ========== LAYOUT ========== */
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* ========== CARDS ========== */
+    .card {
+      background: radial-gradient(circle at top, rgba(30, 64, 175, 0.15), transparent 55%),
+                  #020617;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      padding: 16px 16px 14px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+      color: #f9fafb;
+    }
+
+    .card h3 {
+      margin: 12px 0 6px;
+      font-size: 0.98rem;
+      color: #e5e7eb;
+    }
+
+    .card p {
+      margin: 0 0 6px;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .pill-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: #a5b4fc;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    ul {
+      margin: 0 0 4px;
+      padding-right: 18px;
+      font-size: 0.9rem;
+    }
+
+    li {
+      margin-bottom: 3px;
+    }
+
+    .quote-box {
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-right: 3px solid #22c55e;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.8);
+      font-size: 0.86rem;
+      color: #e5e7eb;
+    }
+
+    .quote-label {
+      font-size: 0.78rem;
+      color: #a5b4fc;
+      margin-bottom: 3px;
+    }
+
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #cbd5f5;
+    }
+
+    .section-id {
+      font-size: 0.7rem;
+      color: var(--kfupm-muted);
       margin-bottom: 4px;
     }
 
+    /* SIDEBAR */
+    .sidebar-card {
+      background: radial-gradient(circle at top, rgba(22, 163, 74, 0.15), transparent 55%),
+                  #020617;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      padding: 14px 14px 10px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.86rem;
+    }
+
+    .sidebar-card h3 {
+      margin: 0 0 6px;
+      font-size: 0.94rem;
+      color: #f9fafb;
+    }
+
+    .sidebar-card ul {
+      font-size: 0.86rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      background: rgba(22, 163, 74, 0.2);
+      color: #bbf7d0;
+      border: 1px solid rgba(22, 163, 74, 0.7);
+      margin-bottom: 6px;
+    }
+
     .footer {
-      text-align: center;
-      font-size: 12px;
-      color: var(--muted);
-      padding: 10px 0 20px;
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.4);
+      font-size: 0.82rem;
+      color: var(--kfupm-muted);
+    }
+
+    .footer a {
+      color: #a5b4fc;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    /* simple anchor offset */
+    .anchor {
+      scroll-margin-top: 80px;
     }
   </style>
 </head>
 <body>
-
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="navbar-left">
-      <div class="navbar-logo">
-        <!-- ضع هنا رابط شعار الجامعة -->
-        <img src="https://raw.githubusercontent.com/bale1234789-bot/kfupm-student-rights/main/King%20Fahd%20University%20of%20Petroleum%20and%20Minerals.png
-">
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="brand">
+        <img src="King Fahd University of Petroleum and Minerals.png" alt="KFUPM Logo" />
+        <span>منصة حقوق وواجبات الطالب – KFUPM</span>
       </div>
-      <div>
-        <div class="navbar-title">منصة حقوقي</div>
-        <div class="navbar-sub">مبادرة طلابية للتعريف بحقوق الطالب في جامعة الملك فهد للبترول والمعادن</div>
-      </div>
-    </div>
-    <div class="navbar-links">
-      <a href="#intro">الرئيسية</a>
-      <a href="#rights">حقوق الطالب</a>
-      <a href="#academic">الحقوق الأكاديمية</a>
-      <a href="#privacy">الخصوصية</a>
-      <a href="#complaint">آلية التظلّم</a>
-      <a href="#faq">أسئلة شائعة</a>
-      <a href="https://forms.gle/Bc7msHBZhLpxDKEn9">الاستبيان</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero" id="intro">
-    <h1 class="hero-title">منصة حقوقي في جامعة الملك فهد للبترول والمعادن</h1>
-    <p class="hero-subtitle">
-      تهدف هذه المنصة إلى تقديم شرح مبسّط ومباشر لأهم حقوق الطالب داخل الجامعة، مع توضيح آلية التظلّم
-      ورفع الشكاوى، بما ينسجم مع لوائح وأنظمة الجامعة.
-    </p>
-    <div class="hero-tags">
-      <span class="hero-tag">حقوق الإنسان في البيئة الجامعية</span>
-      <span class="hero-tag">عدالة أكاديمية</span>
-      <span class="hero-tag">خصوصية وحماية بيانات</span>
+      <nav class="nav-links">
+        <a href="#rights">حقوق الطالب</a>
+        <a href="#duties">واجبات الطالب</a>
+        <a href="#relations">علاقات الطالب</a>
+        <a href="#discipline">اللائحة التأديبية</a>
+        <a href="#dress">اللباس والذوق العام</a>
+        <a href="#housing">سكن الطلاب</a>
+        <a href="#activity">النشاط الطلابي</a>
+        <a href="#traffic">المرور داخل الجامعة</a>
+      </nav>
     </div>
   </header>
 
   <main class="page">
-    <div class="grid">
-      <!-- العمود الرئيسي -->
-      <section>
-        <!-- بطاقة: مقدمة -->
-        <article class="card">
-          <div class="card-header">
-            <div class="card-title">لماذا أُنشئت هذه المنصة؟</div>
-            <span class="card-pill">عن المنصة</span>
-          </div>
-          <p style="font-size:14px;">
-            يواجه كثير من الطلاب صعوبة في الوصول إلى معلومات واضحة حول حقوقهم وواجباتهم داخل الجامعة، سواء
-            في الجوانب الأكاديمية أو السلوكية أو الإدارية. ولهذا أُطلقت منصة <b>حقوقي</b> كعمل طلابي
-            يهدف إلى:
-          </p>
-          <ul>
-            <li>تلخيص أهم حقوق الطالب بلغة بسيطة بعيدة عن التعقيد القانوني.</li>
-            <li>تجميع الحقوق المتفرقة في اللوائح المختلفة في مكان واحد يسهل الرجوع إليه.</li>
-            <li>توضيح ما يمكن للطالب فعله إذا رأى أن أحد حقوقه لم يُحترم.</li>
-          </ul>
-          <p class="muted">
-            هذه المنصة ليست بديلاً عن الأنظمة الرسمية للجامعة، بل تساعد الطالب على فهمها وتشجّعه على الرجوع إليها عند الحاجة.
-          </p>
-        </article>
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="hero-title">دليل حقوق وواجبات طالب جامعة الملك فهد للبترول والمعادن</h1>
+      <p class="hero-subtitle">
+        هذه المنصة تلخِّص لك أهم البنود الواردة في
+        <strong>دليل الحقوق والواجبات</strong> واللوائح ذات العلاقة في الجامعة، بلغة واضحة ومركزة تساعدك تعرف
+        «إيش لك وإيش عليك» كطالب.
+      </p>
+      <div class="hero-meta">
+        <span class="chip">مستند معتمد – دليل الحقوق والواجبات الطلابية</span>
+        <span class="chip">يشمل: حقوق، واجبات، لوائح تأديبية، لبس، سكن، نشاط، مرور</span>
+      </div>
+    </section>
 
-        <!-- بطاقة: ما هي حقوق الطالب -->
-        <article class="card" id="rights">
-          <div class="card-header">
-            <div class="card-title">ما هي حقوق الطالب في KFUPM؟</div>
-            <span class="card-pill">نظرة عامة</span>
-          </div>
-          <p style="font-size:14px;">
-            تلتزم الجامعة بتوفير بيئة تعليمية عادلة ومحفّزة لجميع الطلاب، ومن أهم الحقوق العامة للطالب:
-          </p>
+    <section class="layout">
+      <!-- MAIN COLUMNS -->
+      <div>
+        <!-- RIGHTS -->
+        <article id="rights" class="card anchor">
+          <div class="pill-title"><span class="pill-dot"></span>حقوق الطالب الجامعي</div>
+          <div class="section-id">من دليل الحقوق والواجبات – المواد الخاصة بحقوق الطالب</div>
+          <h2>أولاً: الحقوق الأكديمية</h2>
           <ul>
-            <li>المعاملة العادلة والمساواة بين الطلاب دون تمييز.</li>
-            <li>الحق في التعلم ضمن بيئة آمنة ومحترمة.</li>
-            <li>الحق في الحصول على معلومات واضحة عن اللوائح والأنظمة.</li>
-            <li>الحق في تقديم شكوى أو تظلّم وفق إجراءات محددة.</li>
-            <li>الحق في الحفاظ على خصوصية بياناته وسجله الأكاديمي.</li>
-          </ul>
-          <div class="badge-list">
-            <span class="badge">عدالة</span>
-            <span class="badge">شفافية</span>
-            <span class="badge">كرامة الطالب</span>
-            <span class="badge">بيئة آمنة</span>
-          </div>
-        </article>
-
-        <!-- بطاقة: الحقوق الأكاديمية -->
-        <article class="card" id="academic">
-          <div class="card-header">
-            <div class="card-title">أولاً: الحقوق الأكاديمية</div>
-            <span class="card-pill">الدراسة والتقييم</span>
-          </div>
-
-          <div class="card-section-title">1. حق المعرفة الأكاديمية</div>
-          <ul>
-            <li>معرفة وصف المقرر ومخرجات التعلم والأهداف من بداية الفصل.</li>
-            <li>الحصول على خطة تقييم واضحة (اختبارات، واجبات، مشاريع… إلخ).</li>
-            <li>إعلام الطالب بأي تغييرات جوهرية في طريقة التقييم خلال الفصل.</li>
+            <li>المعاملة بالعدالة والمساواة دون أي تمييز في الحقوق والواجبات الأكديمية.</li>
+            <li>توفير بيئة دراسية ومناخ علمي مناسب للتحصيل والبحث.</li>
+            <li>الوصول لجميع المعلومات المتعلقة بأنظمة الدراسة والاختبارات واللوائح بسهولة.</li>
+            <li>الحصول على المادة العلمية والتجهيزات اللازمة لإكمال المقررات والأبحاث.</li>
+            <li>التسجيل في المقررات حسب الخطة الدراسية، واختيار التخصص وفق الأنظمة والشروط.</li>
+            <li>معرفة مواعيد الاختبارات الفصلية والنهائية، وإبلاغك بأي تغيير بوقت كافٍ.</li>
+            <li>عدم تعارض جدول الاختبارات النهائية قدر الإمكان، وعدم تكليفك بأكثر من اختبارين في يوم واحد.</li>
+            <li>التواصل مع أعضاء هيئة التدريس ومناقشتهم علمياً في الأوقات المخصصة (محاضرات، ساعات مكتبية، بريد جامعي...).</li>
+            <li>معرفة نتائج أعمال الفصل قبل النهائي، ومراجعة أوراق الاختبارات ومعرفة الإجابات الصحيحة.</li>
+            <li>التظلم من أي قرار أکاديمي (درجة، حرمان، إجراءات اختبار...) عبر القنوات الرسمية.</li>
           </ul>
 
-          <div class="card-section-title">2. حق التسجيل والتعديل</div>
+          <h3>ثانياً: الحقوق غير الأكديمية</h3>
           <ul>
-            <li>التسجيل في المقررات وفق الشروط والضوابط المعلنة.</li>
-            <li>إتاحة فترات محددة للإضافة والحذف وتعديل الجدول الدراسي.</li>
-            <li>معرفة الضوابط المتعلقة بالتأجيل، الانسحاب من المقرر أو من الفصل.</li>
+            <li>معاملة كريمة تحفظ إنسانيتك وكرامتك من جميع منسوبي الجامعة.</li>
+            <li>الحفاظ على سرية ملفك الطالبـي وبياناتك.</li>
+            <li>الحصول على الرعاية الصحية الأولية والأعذار الطبية وفق الأنظمة.</li>
+            <li>الاستفادة من الخدمات: السكن، المكتبة، الملاعب، الأندية والأنشطة، صندوق الطلاب، النقل، الخدمات الغذائية... وغيرها حسب الشروط.</li>
+            <li>المشاركة في اللجان الدائمة والبرامج والرحلات الداخلية والخارجية وخدمة المجتمع متى توفرت الشروط.</li>
+            <li>رفع التظلمات السلوكية للجـهات المختصة وعدم التمييز بين الطلاب في الحقوق.</li>
           </ul>
 
-          <div class="card-section-title">3. حق التقييم العادل</div>
-          <ul>
-            <li>تطبيق معايير موحّدة للتصحيح على جميع الطلاب في نفس المقرر.</li>
-            <li>إجراء الاختبارات وفق الأنظمة (مدة الاختبار، موعده، طريقة الإعلان عنه).</li>
-            <li>إعلان الدرجات في وقت مناسب وبطريقة واضحة.</li>
-          </ul>
-
-          <div class="card-section-title">4. حق مراجعة الدرجات والتظلّم</div>
-          <ul>
-            <li>طلب مراجعة ورقة الاختبار إذا شك الطالب في وجود خطأ في التصحيح أو الرصد.</li>
-            <li>تقديم طلب تظلّم رسمي خلال المدة الزمنية المحددة في اللوائح.</li>
-            <li>الحصول على رد رسمي على التظلّم خلال فترة معقولة.</li>
-          </ul>
-
-          <div class="card-section-title">5. حق الإرشاد الأكاديمي</div>
-          <ul>
-            <li>الحصول على مرشد أكاديمي يساند الطالب في اختيار المقررات ومساره الدراسي.</li>
-            <li>طرح الاستفسارات الأكاديمية ومناقشة وضعه الدراسي مع المرشد.</li>
-          </ul>
-        </article>
-
-        <!-- بطاقة: الخصوصية -->
-        <article class="card" id="privacy">
-          <div class="card-header">
-            <div class="card-title">ثانياً: حقوق الخصوصية وحماية البيانات</div>
-            <span class="card-pill">البيانات الشخصية والأكاديمية</span>
-          </div>
-          <p style="font-size:14px;">
-            تحترم الجامعة خصوصية بيانات الطالب، ومن حقه أن تُعامل معلوماته بحساسية ومسؤولية، ومن ذلك:
-          </p>
-
-          <div class="card-section-title">1. سرية السجل الأكاديمي</div>
-          <ul>
-            <li>عدم مشاركة المعدل والدرجات والوضع الأكاديمي إلا مع جهات مخوّلة.</li>
-            <li>استخدام السجل الأكاديمي لأغراض رسمية (مثل التخرّج، التدريب، المنح).</li>
-          </ul>
-
-          <div class="card-section-title">2. حماية المعلومات الشخصية</div>
-          <ul>
-            <li>حفظ بيانات الهوية ووسائل التواصل والعنوان في أنظمة آمنة.</li>
-            <li>عدم استخدامها لأغراض تجارية أو غير رسمية دون موافقة الطالب.</li>
-          </ul>
-
-          <div class="card-section-title">3. استخدام الأنظمة والمنصات التعليمية</div>
-          <ul>
-            <li>تقديم حساب جامعي للطالب للوصول للخدمات الإلكترونية.</li>
-            <li>التزام الطالب بعدم إساءة استخدام المنصات أو مشاركة محتوى يسيء للآخرين.</li>
-            <li>عدم تسجيل أو نشر محتوى المحاضرات أو الزملاء دون إذن.</li>
-          </ul>
-
-          <p class="muted">
-            أي انتهاك لخصوصية الطالب أو بياناته يمكن اعتباره مخالفة لأنظمة الجامعة، ويحق للطالب التظلّم عبر القنوات الرسمية.
-          </p>
-        </article>
-
-        <!-- بطاقة: آلية التظلم -->
-        <article class="card" id="complaint">
-          <div class="card-header">
-            <div class="card-title">ثالثاً: آلية التظلّم ورفع الشكاوى</div>
-            <span class="card-pill">ماذا أفعل إذا شعرت أن حقي لم يُحترم؟</span>
-          </div>
-          <p style="font-size:14px;">
-            توفّر الجامعة قنوات رسمية للتظلّم الأكاديمي أو الإداري. هذه خطوات عامة يمكن للطالب الاسترشاد بها
-            (مع مراعاة اللوائح الفعلية في الجامعة):
-          </p>
-
-          <div class="timeline">
-            <div class="timeline-step">
-              <span class="tag-small">الخطوة 1</span>
-              <b>التواصل المباشر مع الجهة المعنية</b><br />
-              مثل أستاذ المقرر، منسق المادة، أو المرشد الأكاديمي. كثير من الإشكالات تُحل بالحوار المباشر.
-            </div>
-            <div class="timeline-step">
-              <span class="tag-small">الخطوة 2</span>
-              <b>رفع الموضوع لرئيس القسم أو الجهة الأعلى</b><br />
-              في حال عدم حل المشكلة، يرفع الطالب الموضوع بشكل مكتوب لرئيس القسم أو الجهة المختصة.
-            </div>
-            <div class="timeline-step">
-              <span class="tag-small">الخطوة 3</span>
-              <b>تقديم تظلّم رسمي عبر القنوات المعتمدة</b><br />
-              تعبئة نموذج التظلّم الإلكتروني أو الورقي متضمناً وصفاً واضحاً للحالة والتواريخ والأدلة المتاحة.
-            </div>
-            <div class="timeline-step">
-              <span class="tag-small">الخطوة 4</span>
-              <b>متابعة الطلب</b><br />
-              الاحتفاظ برقم المعاملة، ومتابعة الرد خلال المدة المحددة في الأنظمة، ورفع الموضوع للجهات الأعلى
-              عند الحاجة وفق التسلسل.
-            </div>
-          </div>
-
-          <p class="muted">
-            الهدف من آلية التظلّم هو تحقيق العدالة لجميع الأطراف، وليس التصعيد غير البنّاء. كلما كان الطلب
-            مكتوباً بلغة محترمة وموثّقاً بالتواريخ، زادت فرص سرعة معالجته.
-          </p>
-        </article>
-
-        <!-- بطاقة: FAQ -->
-        <article class="card" id="faq">
-          <div class="card-header">
-            <div class="card-title">أسئلة شائعة حول حقوق الطالب</div>
-            <span class="card-pill">FAQ</span>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-q">هل يمكنني الاعتراض على درجتي في اختبار معيّن؟</div>
-            <div class="faq-a">
-              نعم، يمكنك طلب مراجعة ورقة الاختبار أو التظلّم وفق الآلية المعتمدة في القسم، وخلال الفترة الزمنية المحددة بعد إعلان النتيجة.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-q">هل يحق للجامعة مشاركة درجاتي مع جهات خارجية؟</div>
-            <div class="faq-a">
-              تتم مشاركة البيانات الأكاديمية فقط مع جهات رسمية أو بموافقة الطالب، وفق السياسات المعمول بها.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-q">ماذا أفعل إذا تعرضت لسلوك غير مناسب من أحد منسوبي الجامعة؟</div>
-            <div class="faq-a">
-              يمكن التواصل مع المرشد الأكاديمي أو عمادة شؤون الطلاب أو الجهة المختصة، ورفع شكوى رسمية موثقة بما حدث.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-q">هل هذه المنصة جهة رسمية تمثّل الجامعة؟</div>
-            <div class="faq-a">
-              المنصة مبادرة طلابية تهدف لتبسيط المعلومات، ولا تغني عن الرجوع للأنظمة واللوائح الرسمية المعتمدة من الجامعة.
+          <div class="quote-box">
+            <div class="quote-label">نص مرجعي من الدليل</div>
+            <div>
+              «للطالب الحق في التظلم من أية قرارات صادرة ضده والمتعلقة بسير الدراسة، وله الحق في التظلم من إجراءات
+              الاختبارات الصادرة من لجنة شؤون الطلاب أو من أي جهات أخرى ذات الصلة.»
             </div>
           </div>
         </article>
-      </section>
 
-      <!-- العمود الجانبي -->
+        <!-- DUTIES -->
+        <article id="duties" class="card anchor">
+          <div class="pill-title"><span class="pill-dot"></span>واجبات والتزامات الطالب</div>
+          <div class="section-id">من باب «ثانياً – التزامات الطالب الجامعي»</div>
+          <h2>أولاً: الالتزامات الأكديمية</h2>
+          <ul>
+            <li>الاطلاع على الأنظمة واللوائح الجامعية (الدراسة والاختبارات، اللائحة التأديبية، دليل اللباس...)؛
+              الجهل بالنظام لا يُعد عذراً.</li>
+            <li>الانتظام في الدراسة والالتزام بالحضور والأنشطة والواجبات والمتطلبات الخاصة بكل مقرر.</li>
+            <li>اتباع إجراءات التسجيل والحذف والإضافة وعدم التحايل أو تسجيل مواد سبق النجاح فيها.</li>
+            <li>عدم الغش أو الشروع فيه أو المساعدة عليه في أي اختبار أو تقرير أو مشروع أو بحث.</li>
+            <li>الالتزام بحقوق الملكية الفكرية وعدم نسخ أو سرقة أعمال الآخرين.</li>
+          </ul>
+
+          <h3>ثانياً: الالتزامات غير الأكديمية</h3>
+          <ul>
+            <li>الالتزام بالقيم والآداب الإسلامية وأنظمة المملكة.</li>
+            <li>احترام جميع منسوبي الجامعة وضيوفها والعاملين فيها، وعدم الإساءة لهم قولاً أو فعلاً أو عبر وسائل التواصل.</li>
+            <li>حمل البطاقة الجامعية داخل الحرم وإبرازها عند الطلب.</li>
+            <li>الالتزام بأنظمة الأمن والسلامة والمرور، وقواعد استخدام الشبكات والحاسب الآلي.</li>
+            <li>الحفاظ على ممتلكات ومنشآت الجامعة والإبلاغ عن أي تلف أو عبث.</li>
+            <li>الالتزام بالهدوء داخل المدينة الجامعية وتجنب أي سلوك يسبب إزعاجاً أو يخل بالنظام أو الذوق العام.</li>
+            <li>الابتعاد عن إثارة النعرات القبلية أو الطائفية أو المناطقية أو العرقية.</li>
+          </ul>
+        </article>
+
+        <!-- RELATIONS -->
+        <article id="relations" class="card anchor">
+          <div class="pill-title"><span class="pill-dot"></span>علاقات الطالب داخل الجامعة وخارجها</div>
+          <h2>العلاقة مع الجامعة</h2>
+          <ul>
+            <li>عدم القيام بأي عمل منافٍ للشريعة أو القيم أو الآداب العامة داخل الجامعة أو خارجها.</li>
+            <li>الحفاظ على سمعة الجامعة وعدم نشر معلومات غير صحيحة عنها في الإعلام أو شبكات التواصل.</li>
+            <li>استخدام خدمات الجامعة استخداماً مسؤولاً (سكن، نقل، معامل، مكتبات...).</li>
+          </ul>
+
+          <h3>العلاقة مع أعضاء هيئة التدريس ومنسوبي الجامعة</h3>
+          <ul>
+            <li>علاقة مهنية منضبطة بضوابط الدين والأخلاق، قائمة على الاحترام المتبادل.</li>
+            <li>الالتزام بآداب الحوار وتقبل الرأي الآخر وعدم تقديم شكاوى كيدية.</li>
+            <li>التواصل مع الأساتذة عبر القنوات الرسمية فقط: البريد الجامعي، الساعات المكتبية، أنظمة التعلم.</li>
+            <li>الامتناع عن أي تصرف يُعد تحرشاً أو إساءة أو تشهيراً.</li>
+          </ul>
+
+          <h3>العلاقة مع الطلاب الآخرين</h3>
+          <ul>
+            <li>عدم إيذاء الزملاء بالقول أو الفعل أو السخرية أو التنمر.</li>
+            <li>المشاركة الإيجابية في الأنشطة والأندية وتوثيق الروابط الاجتماعية القائمة على الاحترام والتعاون.</li>
+            <li>مساعدة زملاءك من ذوي الإعاقة وذوي الاحتياجات الخاصة واحترام حقوقهم (مثل المواقف المخصصة).</li>
+          </ul>
+
+          <h3>العلاقة مع المجتمع</h3>
+          <ul>
+            <li>تمثيل الجامعة تمثيلاً يليق بها في الأنشطة العلمية والاجتماعية والرياضية.</li>
+            <li>المحافظة على البيئة وترشيد استخدام الطاقة والمياه.</li>
+            <li>الابتعاد عن كل ما يسيء للدين والوطن.</li>
+          </ul>
+        </article>
+
+        <!-- DISCIPLINE -->
+        <article id="discipline" class="card anchor">
+          <div class="pill-title"><span class="pill-dot"></span>اللائحة التأديبية – أبرز المخالفات والعقوبات</div>
+          <h2>أمثلة على المخالفات</h2>
+          <ul>
+            <li>أي فعل أو قول يمسّ الدين أو أنظمة الدولة أو يخلّ بحسن السيرة والسلوك.</li>
+            <li>الاعتداء على أي شخص أو ممتلكاته أو ممتلكات الجامعة.</li>
+            <li>الغش أو الشروع في الغش في الاختبارات أو المتطلبات الأكديمية.</li>
+            <li>التدخين في الأماكن الممنوع فيها، أو مخالفة تعليمات اللباس والمظهر.</li>
+            <li>تنظيم أنشطة أو إصدار مطبوعات أو جمع تبرعات دون موافقة الجامعة.</li>
+            <li>انتحال الشخصية أو الواسطة أو التزوير في المعاملات الجامعية.</li>
+          </ul>
+
+          <h3>نماذج من العقوبات التأديبية (تطبَّق حسب جسامة المخالفة)</h3>
+          <ul>
+            <li>التنبيه الشفهي أو الخطي، أو أخذ تعهد.</li>
+            <li>الإنذار الخطي.</li>
+            <li>الحرمان من بعض الخدمات أو من السكن أو الأنشطة لمدة محددة أو نهائياً.</li>
+            <li>إلغاء درجة مقرر أو أكثر واعتبار الطالب راسباً فيه.</li>
+            <li>إيقاف عن الدراسة لفصل دراسي أو أكثر.</li>
+            <li>الفصل النهائي من الجامعة.</li>
+          </ul>
+
+          <div class="quote-box">
+            <div class="quote-label">مهم</div>
+            <div>
+              التحقيق يكون كتابياً وسماع أقوال الطالب قبل أي عقوبة، وله حق التظلم على قرارات لجنة شؤون الطلاب
+              وفق الإجراءات المحددة في الدليل.
+            </div>
+          </div>
+        </article>
+
+        <!-- DRESS & PUBLIC DECORUM -->
+        <article id="dress" class="card anchor">
+          <div class="pill-title"><span class="pill-dot"></span>اللباس والذوق العام داخل المدينة الجامعية</div>
+          <h2>ضوابط اللباس للطلاب</h2>
+          <ul>
+            <li>مراعاة الآداب والقيم الإسلامية والأعراف المتبعة في المملكة.</li>
+            <li>الحفاظ على المظهر اللائق داخل المدينة الجامعية.</li>
+            <li>يُمنع لبس ما يخل بالذوق العام مثل: ثياب النوم، الشورت القصير جداً، الملابس الشفافة أو التي تحمل عبارات أو صوراً غير لائقة.</li>
+            <li>تجنّب القصات الغريبة أو الإكسسوارات اللافتة والمبالغ فيها.</li>
+            <li>ارتداء حذاء مناسب بالمظهر واللون للبيئة الأكديمية.</li>
+          </ul>
+
+          <h3>أمثلة على مخالفات الذوق العام داخل الجامعة</h3>
+          <ul>
+            <li>التصرفات المخلة بالحياء.</li>
+            <li>رفع صوت الموسيقى أو أي أصوات مزعجة في المرافق.</li>
+            <li>إلقاء النفايات في غير الأماكن المخصصة.</li>
+            <li>تصوير الأشخاص بدون إذنهم، أو تصوير الحوادث داخل الحرم الجامعي.</li>
+          </ul>
+
+          <p style="font-size:0.84rem;color:#cbd5f5;margin-top:8px;">
+            مخالفة ضوابط اللباس أو الذوق العام قد تؤدي إلى: منع من دخول المحاضرة، أو تسجيل مخالفة في الملف،
+            أو غرامة مالية، أو إحالة للجنة شؤون الطلاب.
+          </p>
+        </article>
+
+        <!-- HOUSING -->
+        <article id="housing" class="card anchor">
+          <div class="pill-title"><span class="pill-dot"></span>سكن الطلاب – أهم النقاط</div>
+          <h2>حقوق ساكن السكن الجامعي</h2>
+          <ul>
+            <li>الحصول على وحدة سكنية مجهزة وفق الضوابط، مع خدمات الأمن والسلامة والصيانة والنظافة.</li>
+            <li>الاستفادة من الأنشطة والبرامج داخل السكن، وخدمات المركز الصحي عند الحاجة.</li>
+            <li>استقبال الزوار وفق الأوقات والضوابط المحددة من إدارة السكن.</li>
+          </ul>
+
+          <h3>التزامات ساكن السكن الجامعي</h3>
+          <ul>
+            <li>الالتزام بالتعاليم الشرعية والأنظمة والسلوك الحسن مع الزملاء والمشرفين.</li>
+            <li>الحفاظ على نظافة الغرفة والمرافق وعدم إتلاف الأثاث أو العبث بأنظمة السلامة (مثل حسّاسات الدخان).</li>
+            <li>عدم استخدام الأجهزة الخطرة أو غير المسموح بها (مواقد، دفايات، توصيلات غير آمنة، شيشة... إلخ).</li>
+            <li>عدم إسكان أي شخص آخر في الغرفة أو السماح له باستخدامها بشكل غير نظامي.</li>
+            <li>الالتزام بمواعيد الدخول والخروج من السكن وإبلاغ الإدارة في حال الغياب أو السفر.</li>
+          </ul>
+
+          <p style="font-size:0.84rem;color:#fca5a5;margin-top:8px;">
+            بعض المخالفات في السكن قد تصل عقوبتها إلى الحرمان من السكن، ومع طلاب المنح قد ترتبط بالمنحة
+            الدراسية نفسها.
+          </p>
+        </article>
+
+        <!-- ACTIVITY -->
+        <article id="activity" class="card anchor">
+          <div class="pill-title"><span class="pill-dot"></span>النشاط الطلابي والأندية</div>
+          <h2>لماذا النشاط مهم؟</h2>
+          <ul>
+            <li>بناء شخصية متوازنة وتنمية المهارات القيادية وتحمل المسؤولية.</li>
+            <li>استثمار الوقت في برامج هادفة تكشف وتطوّر مواهبك.</li>
+            <li>تعزيز العلاقات مع الزملاء وأعضاء هيئة التدريس وخدمة المجتمع.</li>
+          </ul>
+
+          <h3>مبادئ أساسية للمشاركة في الأندية</h3>
+          <ul>
+            <li>النشاط عمل تطوعي منظم بإشراف عمادة شؤون الطلاب.</li>
+            <li>الالتزام بالآداب العامة وتمثيل الجامعة بصورة مشرفة داخلها وخارجها.</li>
+            <li>عدم استلام أي مبالغ أو رعايات مباشرة؛ كل التعاملات المالية تتم عبر صندوق الطلاب.</li>
+            <li>إتباع الأنظمة الخاصة بالدورات، الورش، المسابقات، الرحلات العلمية، والالتزام بالموازنات المعتمدة.</li>
+          </ul>
+        </article>
+
+        <!-- TRAFFIC -->
+        <article id="traffic" class="card anchor">
+          <div class="pill-title"><span class="pill-dot"></span>المرور والمخالفات داخل الحرم الجامعي</div>
+          <h2>ملخص مهم لقيادة المركبات</h2>
+          <ul>
+            <li>التقيد بالسرعات المحددة داخل الجامعة (تختلف للسيارات الصغيرة والحافلات حسب الجداول الرسمية).</li>
+            <li>الوقوف للمشاة، والالتزام بإشارات المرور وعلامة (قف) ونقاط التفتيش.</li>
+            <li>عدم القيادة دون رخصة، أو عكس السير، أو استخدام الجوال أثناء القيادة.</li>
+            <li>استخدام حزام الأمان، وتثبيت الأطفال في المقاعد المخصصة لهم.</li>
+            <li>عدم الوقوف في مواقف ذوي الإعاقة، أو أمام البوابات، أو في الممرات، أو على الأرصفة.</li>
+            <li>عدم التفحيط أو العبث بأقفال الأمن (الكلبش) أو بوابات السيارات.</li>
+          </ul>
+
+          <p style="font-size:0.84rem;color:#fde68a;">
+            المخالفات المرورية تُسجَّل عليك بغرامات مالية، وقد تصل في الحالات الشديدة إلى حجز المركبة أو الفصل من
+            الجامعة عند تكرار المخالفة أو تعريض الآخرين للخطر.
+          </p>
+        </article>
+      </div>
+
+      <!-- SIDEBAR -->
       <aside>
-        <div class="card" id="survey">
-          <div class="side-card-title">استبيان وعي الطالب بحقوقه</div>
-          <p class="muted">
-            يساعدنا هذا الاستبيان على قياس مدى وعي طلاب الجامعة بحقوقهم، وتحديد الجوانب التي تحتاج
-            إلى مزيد من التوضيح أو الجهود التوعوية.
+        <div class="sidebar-card">
+          <div class="badge">مصدر رسمي</div>
+          <h3>عن هذا الملخّص</h3>
+          <p>
+            جميع الفقرات مبنية على <strong>دليل الحقوق والواجبات</strong> واللوائح الطلابية المعتمدة في
+            جامعة الملك فهد للبترول والمعادن. لا يُغني هذا الملخص عن الرجوع للنص الكامل عند الحاجة.
           </p>
-          <ul>
-            <li>مدة تعبئة الاستبيان أقل من دقيقتين.</li>
-            <li>البيانات تُستخدم لأغراض دراسية وتطويرية فقط.</li>
-          </ul>
-          <!-- ضع رابط Google Forms هنا -->
-          <a class="button" href="https://forms.gle/Bc7msHBZhLpxDKEn9" target="_blank" rel="noopener">
-            المشاركة في الاستبيان
-          </a>
+          <div class="tag-grid">
+            <span class="tag">حقوق الطالب</span>
+            <span class="tag">واجبات الطالب</span>
+            <span class="tag">اللائحة التأديبية</span>
+            <span class="tag">اللباس والذوق</span>
+            <span class="tag">سكن الطلاب</span>
+            <span class="tag">النشاط الطلابي</span>
+            <span class="tag">المخالفات المرورية</span>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="side-card-title">كيف أستفيد من هذه المنصة؟</div>
+        <div class="sidebar-card">
+          <h3>كيف تستخدم المنصة؟</h3>
           <ul>
-            <li>استخدمها كمرجع سريع عند مواجهة موقف غير واضح.</li>
-            <li>اطّلع على الحقوق قبل بداية كل فصل دراسي.</li>
-            <li>شارك الرابط مع زملائك في الشُعب والأنشطة الطلابية.</li>
+            <li><strong>قبل ما تشتكي:</strong> راجع قسم الحقوق وتأكد من الخطوات النظامية للتظلم.</li>
+            <li><strong>قبل ما تسوي تصرف رمادي:</strong> افتح قسم الواجبات واللباس والذوق العام.</li>
+            <li><strong>ساكن في السكن؟</strong> ادخل قسم السكن واعرف الأشياء الممنوعة والعقوبات.</li>
+            <li><strong>معك سيارة داخل الجامعة؟</strong> اقرأ أهم المخالفات المرورية والغرامات.</li>
           </ul>
         </div>
 
-        <div class="card">
-          <div class="side-card-title">تنبيه مهم</div>
-          <p class="muted">
-            هذه المنصة لا تمثّل موقفاً رسمياً للجامعة، وإنما تعكس محاولة طلابية لنشر الوعي بحقوق الطالب
-            بأسلوب مبسّط. المرجع النهائي هو اللوائح والأنظمة المعتمدة من الجامعة.
+        <div class="sidebar-card">
+          <h3>نموذج التظلم (إرشادي)</h3>
+          <p style="font-size:0.82rem;">
+            ١. حدد القرار أو المخالفة التي تريد التظلم منها.<br />
+            ٢. اجمع المستندات والأدلة (رسائل، درجات، نماذج...).<br />
+            ٣. تواصل أولاً مع الجهة الأقرب (أستاذ المقرر، رئيس القسم، إدارة السكن...).<br />
+            ٤. إذا لم تُحل المشكلة، ارفع تظلمك إلى لجنة شؤون الطلاب أو الجهة الأعلى حسب ما هو موضح في الدليل.
           </p>
         </div>
       </aside>
-    </div>
+    </section>
+
+    <footer class="footer">
+      هذه الصفحة مجرد <strong>ملخّص توعوي</strong> لمحتوى دليل الحقوق والواجبات واللوائح الطلابية في
+      الجامعة. في حال التعارض أو الحاجة لتفاصيل إضافية، يُرجع دائماً إلى الدليل الرسمي واللوائح المنشورة من
+      الجامعة.
+    </footer>
   </main>
 
-  <footer class="footer">
-    منصة حقوقي – عمل طلابي في جامعة الملك فهد للبترول والمعادن ©
-  </footer>
+  <script>
+    // تمرير ناعم عند الضغط على روابط الشريط العلوي
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
